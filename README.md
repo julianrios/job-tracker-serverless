@@ -3,7 +3,17 @@
 
 **Current status:** POC in progress
 
+
 A production-style serverless web application built with React, AWS CDK, and AWS managed services to track job applications and application status.
+
+## Why I Built This
+
+This project demonstrates a production-style serverless architecture using AWS CDK and managed services. It is designed to:
+
+- Showcase infrastructure-as-code (IaC) practices
+- Demonstrate authentication via JWT (Cognito)
+- Model real-world CRUD patterns with DynamoDB
+- Separate development and stable release branches
 
 ---
 
@@ -90,3 +100,7 @@ Runs on: http://localhost:5173
 - Use a validation library (zod/joi) or request DTOs for clearer and more maintainable input validation.
 - If the store becomes async (real DB), make handlers async and await persistence; also consider returning a `Location` header for the new resource.
 - Consider an environment variable for the port (e.g., `process.env.PORT ?? 3001`), tighten CORS for production, add request-logging and error-handling middleware, and implement graceful shutdown for the server.
+
+You can bridge that by adding one small AI feature:
+- “Given a job description, extract keywords + generate tailored bullet points” (calls an LLM)
+- Save results per application
