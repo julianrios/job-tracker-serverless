@@ -4,9 +4,15 @@ import { InfraStack } from "../lib/infra-stack";
 
 const app = new cdk.App();
 
-new InfraStack(app, "InfraStack", {
-  env: {
-    account: process.env.CDK_DEFAULT_ACCOUNT,
-    region: process.env.CDK_DEFAULT_REGION,
-  },
+const account = process.env.CDK_DEFAULT_ACCOUNT;
+const region = process.env.CDK_DEFAULT_REGION;
+
+new InfraStack(app, "JobTracker-Dev", {
+  env: { account, region },
+  stageName: "dev",
+});
+
+new InfraStack(app, "JobTracker-Prod", {
+  env: { account, region },
+  stageName: "prod",
 });

@@ -100,7 +100,8 @@ Runs on: http://localhost:5173
 - Use a validation library (zod/joi) or request DTOs for clearer and more maintainable input validation.
 - If the store becomes async (real DB), make handlers async and await persistence; also consider returning a `Location` header for the new resource.
 - Consider an environment variable for the port (e.g., `process.env.PORT ?? 3001`), tighten CORS for production, add request-logging and error-handling middleware, and implement graceful shutdown for the server.
-
+- Add reserved concurrency to Applications Lambda to cap cost
+- Add caching strategy notes (CloudFront for frontend; API caching not needed yet)
 You can bridge that by adding one small AI feature:
 - “Given a job description, extract keywords + generate tailored bullet points” (calls an LLM)
 - Save results per application
